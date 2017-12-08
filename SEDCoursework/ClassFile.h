@@ -36,3 +36,36 @@ public:
 	BasicUser();
 	string ReadContent() override;
 };
+
+class Admin : public User
+{
+public:
+	Admin();
+	void CreateContent(string content) override;
+	string ReadContent() override;
+	virtual void EditContent(string content);
+};
+
+class Principal :public Admin
+{
+public:
+	Principal();
+	void EditContent(string content) override;
+	void DeleteContent();
+};
+
+class Moderator : public Admin
+{
+public:
+	Moderator();
+	void EditContent(string content) override;
+	void CreateContent(string content) override;
+};
+
+class ContentCreator : public Admin
+{
+public:
+	ContentCreator();
+	void EditContent(string content) override;
+	void CreateContent(string content) override;
+};

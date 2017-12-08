@@ -75,3 +75,69 @@ string BasicUser::ReadContent()
 {
 	return "Basic contents for basic user";
 }
+
+Admin::Admin() :User()
+{
+	this->IsAdmin = true;
+	cout << "Admin " << this->Username << " has been created." << endl;
+}
+
+void Admin::CreateContent(string content)
+{
+	cout << "Content created : " << content << endl;
+}
+
+string Admin::ReadContent()
+{
+	return "Admins can read all contents.";
+}
+
+void Admin::EditContent(string content)
+{
+	cout << "Admin type unknown, unable to edit content." << endl;
+}
+
+Principal::Principal(): Admin()
+{
+	cout << "Admin " << this->Username << " is a principal!" << endl;
+}
+
+void Principal::EditContent(string content)
+{
+	cout << "Content edited : " << content << endl;
+}
+
+void Principal::DeleteContent()
+{
+	cout << "Content deleted" << endl;
+}
+
+Moderator::Moderator() : Admin()
+{
+	cout << "Admin " << this->Username << " is a moderator!" << endl;
+}
+
+void Moderator::CreateContent(string content)
+{
+	cout << "Moderators can't create content!" << endl;
+}
+
+void Moderator::EditContent(string content)
+{
+	cout << "Content edited : " << content << endl;
+}
+
+ContentCreator::ContentCreator(): Admin()
+{
+	cout << "Admin " << this->Username << "is a content creator!" << endl;
+}
+
+void ContentCreator::CreateContent(string content)
+{
+	cout << "Content created : " << content << endl;
+}
+
+void ContentCreator::EditContent(string content)
+{
+	cout << "Content creator cannot edit content!" << endl;
+}
