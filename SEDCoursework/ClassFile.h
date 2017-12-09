@@ -7,11 +7,11 @@ class User
 {
 public:
 	User();
+	string Username;
 	void ChangePassword();
 	virtual void CreateContent(string content);
 	virtual string ReadContent();
 protected:
-	string Username;
 	string Password;
 	bool IsAdmin;
 };
